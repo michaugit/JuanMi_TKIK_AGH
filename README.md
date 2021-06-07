@@ -201,8 +201,8 @@ Kompilator uruchamiamy z konsoli z użyciem polecenia:
 ```python translate.py <plik w języku JuanMI (.txt)> <plik wyjściowy (.py)>```
 Otrzymujemy plik wyjściowy w języku Python, który możemy w dowolny sposób uruchomić.
 
-##10. Testy, przykłady:
-###Przykład pierwszy:
+## 10. Testy, przykłady:
+### Przykład pierwszy:
 ```
 # funkcja hello w jezyku JuanMI
 FUNKCJA witaj(TEKST tresc):
