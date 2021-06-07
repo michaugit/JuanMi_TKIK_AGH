@@ -1,18 +1,18 @@
 ## 1. Kompilator własnego języka "JuanMI" do języka Python
 
-##2. Autorzy projektu: 
+## 2. Autorzy projektu: 
   * Anna Gnoińska: III rok, Informatyka
   * Julia Ignacyk: III rok, Informatyka
   * Michał Pieniądz: III rok, Informatyka
 
-##3. Założenia programu:
+## 3. Założenia programu:
   * ogólne cele programu: stworzenie kompilatora dla własnego języka programowania JuanMI, który ma na celu ułatwienie nauki języka programowania za pomocą wprowadzenia słów kluczowych w języku polskim
   * rodzaj translatora: kompilator
   * planowany wynik działania proframu: kompilator języka JuanMI do języka Python (wynik w postaci pliku .py)
   * planowany język implementacji: Python
   * sposób implementacji skanera/parsera: użycie generatora ANTLR 
 
-##4. Tokeny:
+## 4. Tokeny:
 ```
 TKN_END_LINE            :('.');
 TKN_NUMBER              :('LICZBA');
@@ -63,7 +63,7 @@ TKN_VAR_ID              :[a-zA-Z_][a-zA-Z0-9_]*;
 TKN_WHITESPACE          :(' ' | '\t' | '\n') -> skip;
 ```
 
-##5. Gramatyka:
+## 5. Gramatyka:
 ```
 program:
     code EOF;
@@ -153,20 +153,20 @@ loopCode:
     (TKN_BREAK | TKN_CONTINUE) TKN_END_LINE loopCode | (TKN_BREAK | TKN_CONTINUE) TKN_END_LINE;
 ```
 
-##6. Opis i schemat struktury programu:
+## 6. Opis i schemat struktury programu:
   * Kod źródłowy zostaje wczytany do programu z pliku.
   * Trafia on do lexera, gdzie strumień wejściowy jest odczytywany i zamieniany na tokeny, jako wynik otrzymujemy strumień tokenów.
   * Przekazujemy strumień do parsera, który ma za zadanie skojarzenie tokenów z elementami gramatyki.
   * Parser posiada funkcję utworzenia drzewa parsowania - w drzewie tym reguły złożone gramatyki są reprezentowane jako korzenie, tokeny proste jako liście drzewa. Jako wynik tej części programu otrzymujemy gotowe drzewo parsowania.
   * Posiadając już drzewo oraz wszystkie potrzebne reguły za pomocą walkera z biblioteki ANTLR oraz listenera, który został przez nas zaimplementowany możemy przejść po drzewie i wygenerować kod w języku Python.
 
-##7. Informacje o stosowanych generatorach skanerów/parserów, pakietach zewnętrznych: 
+## 7. Informacje o stosowanych generatorach skanerów/parserów, pakietach zewnętrznych: 
 ANTLR to generator parserów do czytania, przetwarzania, wykonywania lub tłumaczenia tekstu strukturalnego lub plików binarnych. Jest szeroko stosowany do tworzenia języków, narzędzi i frameworków. Na podstawie gramatyki, ANTLR generuje parser, który może budować i przechodzić przez drzewa parsowania.
 
-##8. Informacje o zastosowaniu specyficznych metod rozwiązania problemu: 
+## 8. Informacje o zastosowaniu specyficznych metod rozwiązania problemu: 
 Język, który stworzyliśmy na potrzeby tego projektu jest językiem ułatwiającym naukę programowania. Poprzez zdefiniowanie słów kluczowych w języku polskim młodsze osoby nie mają problemu ze zrozumieniem koncepcji ich działania. To rozwiązanie pozwoli dzieciom oswajać się z programowaniem już od najmłodszych lat.
 
-##9. Krótka instrukcja obsługi:
+## 9. Krótka instrukcja obsługi:
 Na początku musimy pobrać kompletny plik JAR ANTLR. Po stworzeniu pliku .g4 składającego się z opisanych tokenów i gramatyki należy go skompilować w użyciem pobranego wcześniej JAR'a ANTLR. Używamy polecenia:
 
 ```java -Xmx500M -cp antlr-4.7.2-complete.jar org.antlr.v4.Tool -Dlanguage=Python3 JuanMI.g4```
@@ -201,8 +201,8 @@ Kompilator uruchamiamy z konsoli z użyciem polecenia:
 ```python translate.py <plik w języku JuanMI (.txt)> <plik wyjściowy (.py)>```
 Otrzymujemy plik wyjściowy w języku Python, który możemy w dowolny sposób uruchomić.
 
-##10. Testy, przykłady:
-###Przykład pierwszy:
+## 10. Testy, przykłady:
+### Przykład pierwszy:
 ```
 # funkcja hello w jezyku JuanMI
 FUNKCJA witaj(TEKST tresc):
@@ -244,7 +244,7 @@ DLA indeks OD 1 DO 10:
     KONIEC.
 KONIEC.
 ```
-###Wynik:
+### Wynik:
 ```
 # funkcja hello w jezyku JuanMI
 
@@ -283,7 +283,7 @@ for indeks in range (1, 10):
 		continue
 ```
 
-###Przykład drugi:
+### Przykład drugi:
 ```
 # funkcja obliczajaca pole prostokata
 FUNKCJA prostokat(LICZBA zmienna1, LICZBA zmienna2):
@@ -304,7 +304,7 @@ WYPISZ("Pole trojkata o bokach 4 i 5").
 WYPISZ(trojkat(4,5)).
 ```
 
-###Wynik:
+### Wynik:
 ```
 # funkcja obliczajaca pole prostokata
 
@@ -331,7 +331,7 @@ print(trojkat(4, 5))
 print("Pole kwadratu o boku 4")
 print(kwadrat(4))
 ```
-###Przykład trzeci:
+### Przykład trzeci:
 ```
 # deklaracja listy
 LISTA lista := [1, 3, 5, 6].
@@ -349,7 +349,7 @@ DOPOKI indeks < 10:
     indeks := indeks + 1.
 KONIEC.
 ```
-###Wynik:
+### Wynik:
 ```
 # deklaracja listy
 
@@ -365,7 +365,7 @@ while indeks < 10:
 		
 	indeks = indeks + 1
 ```
-###Przykłady błędów:
+### Przykłady błędów:
 ```
 line 9:15 token recognition error at: '"Jestem numerem 4)'
 line 9:33 no viable alternative at input 'DOPOKIindeks<10:JEZELIindeks=4:WYPISZ(.'
@@ -378,19 +378,19 @@ line 5:11 no viable alternative at input 'LICZBAindks'
 ```
 
 
-##11. Możliwe rozszerzenia programu:
+## 11. Możliwe rozszerzenia programu:
   * dodanie możliwości obsługi programów wieloplikowych
   * wprowadzenie obsługi funkcji lamda
   * rozszerzenia języka o klasy i obiekty
   * możliwość implementacji słowników 
 
-##12. Ograniczenia programu:
+## 12. Ograniczenia programu:
   * brak możliwości definiowania klas oraz obiektów
   * brak obsługi programów wieloplikowych
   * brak obsługi funkcji lambda
   * brak obsługi słowników
 
-##13. Inne informacje zależne od tematu:
+## 13. Inne informacje zależne od tematu:
 https://www.javadoc.io/doc/org.antlr/antlr4/latest/index.html 
 http://blog.anvard.org/articles/2016/03/15/antlr-python.html 
 https://stackoverflow.com/questions/39572300/translator-using-antlr4 
