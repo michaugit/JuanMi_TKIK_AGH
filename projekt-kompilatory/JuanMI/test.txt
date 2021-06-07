@@ -1,0 +1,41 @@
+# funkcja hello w jezyku JuanMI
+
+FUNKCJA witaj(TEKST tresc):
+    TEKST wiadomosc := "witaj " ++ tresc ++ "!".
+    ZWROC wiadomosc.
+KONIEC.
+
+# fibonacci iteracyjnie w jezyku JuanMI
+FUNKCJA fib(LICZBA zmienna):
+    JEZELI zmienna = 1:
+        ZWROC 0.
+    JEZELI_INACZEJ zmienna = 2:
+        ZWROC 1.
+    INACZEJ:
+        tymczasowa_1 := 0.
+        tymczasowa_2 := 1.
+        DLA indeks OD 2 DO zmienna:
+        wynik := tymczasowa_1 + tymczasowa_2.
+        tymczasowa_1 := tymczasowa_2.
+        tymczasowa_2 := wynik.
+        KONIEC.
+        ZWROC wynik.
+    KONIEC.
+KONIEC.
+
+
+WYPISZ(witaj("Czlowieku")).
+
+DLA indeks OD 1 DO 10:
+    JEZELI indeks < 4 LUB indeks >= 7:
+        WYPISZ("fib").
+        WYPISZ(fib(indeks)).
+    JEZELI_INACZEJ indeks = 9:
+        PRZERWIJ.
+    INACZEJ:
+        WYPISZ("indeks ").
+        WYPISZ(indeks).
+        KONTYNUUJ.
+    KONIEC.
+KONIEC.
+

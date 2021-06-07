@@ -1,0 +1,29 @@
+
+# funkcja obliczajaca pole prostokata
+FUNKCJA prostokat(LICZBA zmienna1, LICZBA zmienna2):
+    LICZBA wynik := zmienna1 * zmienna2.
+    ZWROC wynik.
+KONIEC.
+
+# funkcja obliczajaca pole trojkata
+FUNKCJA trojkat(LICZBA zmienna1, LICZBA zmienna2):
+    LICZBA wynik := zmienna1 * zmienna2 * 0.5.
+    ZWROC wynik.
+KONIEC.
+
+# funkcja obliczajaca pole kwadratu
+FUNKCJA kwadrat(LICZBA zmienna):
+    LICZBA wynik := zmienna * zmienna.
+    ZWROC wynik.
+KONIEC.
+
+WYPISZ("Pole prostokata o bokach 2 i 3").
+WYPISZ(prostokat(2,3)).
+
+WYPISZ("Pole trojkata o bokach 4 i 5").
+WYPISZ(trojkat(4,5)).
+
+WYPISZ("Pole kwadratu o boku 4").
+WYPISZ(kwadrat(4)).
+
+
